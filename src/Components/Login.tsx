@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Alert from "./Alert";
-import Dashboard from "./Dashboard";
-import ReactDOM from "react-dom";
+import Alert1 from "./Alert";
 
 const Login = () => {
   const navigate = useNavigate();
   let [uname, setName] = useState("");
   let [pwd, setPwd] = useState("");
-  const [showAlert, setShowAlert] = useState(false);
+  const [showAlert1, setShowAlert1] = useState(false);
+  const [showAlert2, setShowAlert2] = useState(false);
 
-  const doLogin = () => {
+  const doLogin = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+
     if (uname === "" || pwd === "") {
-      alert("Username and Password cannot be blank!");
+      setShowAlert2(true);
       return;
     }
     if (uname === "admin" && pwd === "admin") {
@@ -20,7 +21,7 @@ const Login = () => {
       localStorage.setItem("Isauth", "true");
       navigate("/dashboard/");
     } else {
-      setShowAlert(true);
+      setShowAlert1(true);
     }
   };
 
@@ -29,23 +30,17 @@ const Login = () => {
     setPwd("");
   };
 
-  const handleAlertClose = () => {
-    setShowAlert(false);
-  };
-
   return (
     <div className="container">
-      {showAlert && (
-        <div className="alert alert-danger alert-dismissible" role="alert">
-          Login not successful. Please try again.
-          <button
-            type="button"
-            className="btn-close"
-            data-bs-dismiss="alert"
-            aria-label="Close"
-            onClick={handleAlertClose}
-          ></button>
-        </div>
+      {showAlert2 && (
+        <Alert1 onClick={() => setShowAlert2(false)}>
+          Please Enter your userName and Password
+        </Alert1>
+      )}
+      {showAlert1 && (
+        <Alert1 onClick={() => setShowAlert1(false)}>
+          Invalid UserName and password
+        </Alert1>
       )}
       <div className="row justify-content-center">
         <div className="col-md-6">
@@ -101,14 +96,3 @@ const Login = () => {
 };
 
 export default Login;
-function setName(arg0: string) {
-  throw new Error("Function not implemented.");
-}
-
-function setPwd(arg0: string) {
-  throw new Error("Function not implemented.");
-}
-
-function setShowAlert(arg0: boolean) {
-  throw new Error("Function not implemented.");
-}

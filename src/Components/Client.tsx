@@ -1,7 +1,7 @@
 import React from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 
-const Employee = () => {
+const Client = () => {
   const navigate = useNavigate();
 
   const goDetails = (
@@ -16,30 +16,30 @@ const Employee = () => {
     );
   };
 
-  let employee = [
+  let client = [
     {
-      code: "e001",
+      code: "1",
       name: "Tom",
       gender: "Male",
       anualSalary: 5500,
       dateofBirth: "25/6/1988",
     },
     {
-      code: "e002",
+      code: "2",
       name: "Sam",
       gender: "Male",
       anualSalary: 6700,
       dateofBirth: "25/11/1980",
     },
     {
-      code: "e003",
+      code: "3",
       name: "Ravi",
       gender: "Male",
       anualSalary: 8900,
       dateofBirth: "27/11/1980",
     },
     {
-      code: "e001",
+      code: "4",
       name: "Kaveri",
       gender: "Female",
       anualSalary: 9000,
@@ -49,7 +49,7 @@ const Employee = () => {
 
   return (
     <div className="container mt-4">
-      <h3>Employee Information</h3>
+      <h3>Client Information</h3>
       <br></br>
       <table className="table table-striped">
         <thead>
@@ -63,23 +63,23 @@ const Employee = () => {
           </tr>
         </thead>
         <tbody>
-          {employee.map((employee, index) => (
+          {client.map((client, index) => (
             <tr key={index}>
-              <td>{employee.code}</td>
-              <td>{employee.name}</td>
-              <td>{employee.gender}</td>
-              <td>{employee.anualSalary}</td>
-              <td>{employee.dateofBirth}</td>
+              <td>{client.code}</td>
+              <td>{client.name}</td>
+              <td>{client.gender}</td>
+              <td>{client.anualSalary}</td>
+              <td>{client.dateofBirth}</td>
               <td>
                 <button
                   className="btn btn-primary"
                   onClick={() =>
                     goDetails(
-                      employee.code,
-                      employee.name,
-                      employee.gender,
-                      employee.anualSalary,
-                      employee.dateofBirth
+                      client.code,
+                      client.name,
+                      client.gender,
+                      client.anualSalary,
+                      client.dateofBirth
                     )
                   }
                 >
@@ -97,4 +97,4 @@ const Employee = () => {
   );
 };
 
-export default Employee;
+export default Client;

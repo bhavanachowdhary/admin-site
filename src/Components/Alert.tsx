@@ -1,18 +1,25 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { ReactNode } from "react";
 interface Props {
-  children: React.ReactNode;
+  children: ReactNode;
+  onClick: () => void;
 }
-const Alert = ({ children }: Props) => {
+function Alert1(props: Props) {
   return (
-    <div
-      className="alert alert-primary alert-dismissible fade show"
-      role="alert"
-    >
-      <strong>{children}</strong>
-      <button type="button" className="btn-close" aria-label="Close"></button>
+    <div>
+      <div
+        className="alert alert-danger alert-dismissible fade show"
+        role="alert"
+      >
+        <button
+          type="button"
+          className="btn-close"
+          onClick={() => props.onClick()}
+        ></button>
+        <strong>{props.children}</strong>
+      </div>
     </div>
   );
-};
+}
 
-export default Alert;
+export default Alert1;

@@ -10,7 +10,7 @@ const Details = () => {
   const anualSalary = params.get("anualSalary");
   const dateofBirth = params.get("dateofBirth");
 
-  let employee = {
+  let client = {
     code: id,
     name: name,
     gender: gender,
@@ -21,19 +21,19 @@ const Details = () => {
   return (
     <div className="container mt-4">
       <div className="card">
-        <h5 className="card-header">Employee Details Page {id}</h5>
+        <h5 className="card-header">Client Details Page {id}</h5>
         <div className="card-body">
-          <h5 className="card-title">Employee Information</h5>
+          <h5 className="card-title">Client Information</h5>
           <div className="card-text">
-            <strong>Code:</strong> {employee.code}
+            <strong>Code:</strong> {client.code}
             <br />
-            <strong>Name:</strong> {employee.name}
+            <strong>Name:</strong> {client.name}
             <br />
-            <strong>Gender:</strong> {employee.gender}
+            <strong>Gender:</strong> {client.gender}
             <br />
-            <strong>Annual Salary:</strong> ${employee.anualSalary}
+            <strong>Annual Salary:</strong> ${client.anualSalary}
             <br />
-            <strong>Date of Birth:</strong> {employee.dateofBirth}
+            <strong>Date of Birth:</strong> {client.dateofBirth}
             <br />
           </div>
         </div>
