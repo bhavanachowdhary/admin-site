@@ -9,8 +9,11 @@ const Navbar = () => {
     return null;
   }
   const navigate = useNavigate();
-  const goEmployee = () => {
-    navigate("/emp");
+  const goClient = () => {
+    navigate("/client");
+  };
+  const goUser = () => {
+    navigate("/user");
   };
   const doLogout = () => {
     localStorage.removeItem("Isauth");
@@ -47,8 +50,13 @@ const Navbar = () => {
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#" onClick={goEmployee}>
-                      Details
+                    <a className="nav-link" href="#" onClick={goClient}>
+                      Clients
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="#" onClick={goUser}>
+                      Users
                     </a>
                   </li>
                   <li className="nav-item">

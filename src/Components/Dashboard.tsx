@@ -10,9 +10,9 @@ const DashBoard = () => {
       <div className="container mt-4">
         <div className="card">
           <div className="card-body">
-            <h5 className="card-title">Welcome</h5>
+            <h5 className="card-title">My Web App</h5>
             <p className="card-text">
-              Welcome to your {localStorage.getItem("uname")}
+              Welcome {localStorage.getItem("uname")} !!
             </p>
           </div>
         </div>
